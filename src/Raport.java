@@ -7,6 +7,6 @@ public class Raport
     private String trescRaportu;
     private Date data;
 
-    public void wyslij() {};
-    public void formularzRaportu() {};
+    public void wyslij() {}
+    public void formularzRaportu() {}
 }

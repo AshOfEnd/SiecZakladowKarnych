@@ -4,5 +4,5 @@ public class Zamowienie
     private String nazwa;
     private int liczba;
 
-    public void wyswietlZamowienie() {};
+    public void wyswietlZamowienie() {}
 }

@@ -10,4 +10,8 @@ public class Wychowawca extends Pracownik
     public void przydzielWiezniaDoPracy() {}
     public void usunWiezniaZPracy() {}
     public void wyswietlMenu() {}
+
+
+
+
 }
