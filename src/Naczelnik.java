@@ -1,5 +1,10 @@
 public class Naczelnik extends Pracownik
 {
+
+    public Naczelnik(String imie, String nazwisko) {
+        super(imie, nazwisko);
+    }
+
     public void przydzielWiezniaDoCeli() {}
     public void odczytajSkarge() {}
     public void zmienKlaseWieznia() {}
