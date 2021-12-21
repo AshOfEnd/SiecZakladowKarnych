@@ -1,3 +1,6 @@
 public class Izolatka {
-    int pole;
+    private int numerIzolatki;
+    private Wiezien wiezien;
+    public void przydzielDoIzolatki() {};
+    public void usunZIzolatki() {};
 }
