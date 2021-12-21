@@ -7,6 +7,45 @@ public class Raport
     private String trescRaportu;
     private Date data;
 
+    public Raport(String imie, String nazwisko, String trescRaportu, Date data) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.trescRaportu = trescRaportu;
+        this.data = data;
+    }
+
     public void wyslij() {}
     public void formularzRaportu() {}
+
+    public String getImie() {
+        return imie;
+    }
+
+    public void setImie(String imie) {
+        this.imie = imie;
+    }
+
+    public String getNazwisko() {
+        return nazwisko;
+    }
+
+    public void setNazwisko(String nazwisko) {
+        this.nazwisko = nazwisko;
+    }
+
+    public String getTrescRaportu() {
+        return trescRaportu;
+    }
+
+    public void setTrescRaportu(String trescRaportu) {
+        this.trescRaportu = trescRaportu;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
 }
