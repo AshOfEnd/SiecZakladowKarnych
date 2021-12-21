@@ -1,20 +1,20 @@
-import java.util.List;
+import java.util.ArrayList;
 
 public class Kurs
 {
-    private List<Wiezien> czlonkowieKursu;
+    private ArrayList<Wiezien> czlonkowieKursu;
     private String nazwaKursu;
 
-    public Kurs(List<Wiezien> czlonkowieKursu, String nazwaKursu) {
+    public Kurs(ArrayList<Wiezien> czlonkowieKursu, String nazwaKursu) {
         this.czlonkowieKursu = czlonkowieKursu;
         this.nazwaKursu = nazwaKursu;
     }
 
-    public List<Wiezien> getCzlonkowieKursu() {
+    public ArrayList<Wiezien> getCzlonkowieKursu() {
         return czlonkowieKursu;
     }
 
-    public void setCzlonkowieKursu(List<Wiezien> czlonkowieKursu) {
+    public void setCzlonkowieKursu(ArrayList<Wiezien> czlonkowieKursu) {
         this.czlonkowieKursu = czlonkowieKursu;
     }
 

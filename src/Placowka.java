@@ -1,12 +1,12 @@
-import java.util.List;
+import java.util.ArrayList;
 
 public class Placowka
 {
-    private List<Izolatka> listaIzolatek;
-    private List<Wiezien> listaWiezniow;
+    private ArrayList<Izolatka> listaIzolatek;
+    private ArrayList<Wiezien> listaWiezniow;
     private int numerPlacowki;
 
-    public Placowka(List<Izolatka> listaIzolatek, List<Wiezien> listaWiezniow, int numerPlacowki) {
+    public Placowka(ArrayList<Izolatka> listaIzolatek, ArrayList<Wiezien> listaWiezniow, int numerPlacowki) {
         this.listaIzolatek = listaIzolatek;
         this.listaWiezniow = listaWiezniow;
         this.numerPlacowki = numerPlacowki;
@@ -15,19 +15,19 @@ public class Placowka
     public void wyswietl() {}
     public void przeniesWieznia() {}
 
-    public List<Izolatka> getListaIzolatek() {
+    public ArrayList<Izolatka> getListaIzolatek() {
         return listaIzolatek;
     }
 
-    public void setListaIzolatek(List<Izolatka> listaIzolatek) {
+    public void setListaIzolatek(ArrayList<Izolatka> listaIzolatek) {
         this.listaIzolatek = listaIzolatek;
     }
 
-    public List<Wiezien> getListaWiezniow() {
+    public ArrayList<Wiezien> getListaWiezniow() {
         return listaWiezniow;
     }
 
-    public void setListaWiezniow(List<Wiezien> listaWiezniow) {
+    public void setListaWiezniow(ArrayList<Wiezien> listaWiezniow) {
         this.listaWiezniow = listaWiezniow;
     }
 

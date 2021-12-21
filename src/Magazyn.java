@@ -1,11 +1,11 @@
-import java.util.List;
+import java.util.ArrayList;
 
 public class Magazyn
 {
-    private List<Produkt> listaProduktów;
-    private List<Zamowienie> listaZamowien;
+    private ArrayList<Produkt> listaProduktów;
+    private ArrayList<Zamowienie> listaZamowien;
 
-    public Magazyn(List<Produkt> listaProduktów, List<Zamowienie> listaZamowien) {
+    public Magazyn(ArrayList<Produkt> listaProduktów, ArrayList<Zamowienie> listaZamowien) {
         this.listaProduktów = listaProduktów;
         this.listaZamowien = listaZamowien;
     }
@@ -15,19 +15,19 @@ public class Magazyn
     public void wydajTowar() {}
     public void dodajDoMagazynu() {}
 
-    public List<Produkt> getListaProduktów() {
+    public ArrayList<Produkt> getListaProduktów() {
         return listaProduktów;
     }
 
-    public void setListaProduktów(List<Produkt> listaProduktów) {
+    public void setListaProduktów(ArrayList<Produkt> listaProduktów) {
         this.listaProduktów = listaProduktów;
     }
 
-    public List<Zamowienie> getListaZamowien() {
+    public ArrayList<Zamowienie> getListaZamowien() {
         return listaZamowien;
     }
 
-    public void setListaZamowien(List<Zamowienie> listaZamowien) {
+    public void setListaZamowien(ArrayList<Zamowienie> listaZamowien) {
         this.listaZamowien = listaZamowien;
     }
 }

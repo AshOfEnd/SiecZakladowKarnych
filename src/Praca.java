@@ -1,20 +1,20 @@
-import java.util.List;
+import java.util.ArrayList;
 
 public class Praca
 {
-    private List<Wiezien> listaPracownikow;
+    private ArrayList<Wiezien> listaPracownikow;
     private String nazwaPracy;
 
-    public Praca(List<Wiezien> listaPracownikow, String nazwaPracy) {
+    public Praca(ArrayList<Wiezien> listaPracownikow, String nazwaPracy) {
         this.listaPracownikow = listaPracownikow;
         this.nazwaPracy = nazwaPracy;
     }
 
-    public List<Wiezien> getListaPracownikow() {
+    public ArrayList<Wiezien> getListaPracownikow() {
         return listaPracownikow;
     }
 
-    public void setListaPracownikow(List<Wiezien> listaPracownikow) {
+    public void setListaPracownikow(ArrayList<Wiezien> listaPracownikow) {
         this.listaPracownikow = listaPracownikow;
     }
 

@@ -11,7 +11,8 @@ public class ClientH implements Runnable{
    private PrintWriter out;
    private ArrayList<ClientH> clients;
    private ArrayList<String> imiona;
-   public ClientH(Socket clientSocket, ArrayList<ClientH> clients,ArrayList<String> imiona) throws IOException {
+   public ClientH(Socket clientSocket, ArrayList<ClientH> clients,ArrayList<String> imiona) throws IOException
+   {
       this.imiona=imiona;
        this.clients=clients;
        this.client=clientSocket;

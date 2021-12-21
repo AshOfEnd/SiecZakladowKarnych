@@ -1,5 +1,5 @@
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Wiezien
 {
@@ -8,11 +8,11 @@ public class Wiezien
     private String klasa;
     private int wiek;
     private Date dataZwolnienia;
-    private List<Skargi> skargi;
-    private List<Lek> listaLekow;
+    private ArrayList<Skargi> skargi;
+    private ArrayList<Lek> listaLekow;
     private int numerCeli;
 
-    public Wiezien(String imie, String nazwisko, String klasa, int wiek, Date dataZwolnienia, List<Skargi> skargi, List<Lek> listaLekow, int numerCeli) {
+    public Wiezien(String imie, String nazwisko, String klasa, int wiek, Date dataZwolnienia, ArrayList<Skargi> skargi, ArrayList<Lek> listaLekow, int numerCeli) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.klasa = klasa;
@@ -69,19 +69,19 @@ public class Wiezien
         this.dataZwolnienia = dataZwolnienia;
     }
 
-    public List<Skargi> getSkargi() {
+    public ArrayList<Skargi> getSkargi() {
         return skargi;
     }
 
-    public void setSkargi(List<Skargi> skargi) {
+    public void setSkargi(ArrayList<Skargi> skargi) {
         this.skargi = skargi;
     }
 
-    public List<Lek> getListaLekow() {
+    public ArrayList<Lek> getListaLekow() {
         return listaLekow;
     }
 
-    public void setListaLekow(List<Lek> listaLekow) {
+    public void setListaLekow(ArrayList<Lek> listaLekow) {
         this.listaLekow = listaLekow;
     }
 
