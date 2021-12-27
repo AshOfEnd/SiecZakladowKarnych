@@ -1,4 +1,6 @@
-public class Magazynier extends Pracownik
+import java.io.Serializable;
+
+public class Magazynier extends Pracownik implements Serializable
 {
 
     public Magazynier(String imie, String nazwisko) {
