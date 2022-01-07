@@ -12,6 +12,13 @@ public class Placowka
         this.numerPlacowki = numerPlacowki;
     }
 
+    public Placowka(int id)
+    {
+        listaIzolatek = new ArrayList<Izolatka>();
+        listaWiezniow = new ArrayList<Wiezien>();
+        numerPlacowki = id;
+    }
+
     public void wyswietl() {}
     public void przeniesWieznia() {}
 
