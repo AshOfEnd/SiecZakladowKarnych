@@ -10,6 +10,12 @@ public class Magazyn
         this.listaZamowien = listaZamowien;
     }
 
+    public Magazyn()
+    {
+        listaProduktów = new ArrayList<>();
+        listaZamowien = new ArrayList<>();
+    }
+
     public void dodajZamowienie(Zamowienie zam) {}
     public void edytujZamowienie(Zamowienie zam) {}
     public void wydajTowar() {}

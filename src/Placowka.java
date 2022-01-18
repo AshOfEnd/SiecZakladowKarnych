@@ -9,7 +9,7 @@ public class Placowka
 
 
 
-    public Placowka(ArrayList<Izolatka> listaIzolatek, ArrayList<Wiezien> listaWiezniow, int numerPlacowki) {
+    public Placowka(ArrayList<Izolatka> listaIzolatek, ArrayList<Wiezien> listaWiezniow) {
         this.listaIzolatek = listaIzolatek;
         this.listaWiezniow = listaWiezniow;
     }
@@ -19,6 +19,7 @@ public class Placowka
         listaIzolatek = new ArrayList<Izolatka>();
         listaWiezniow = new ArrayList<Wiezien>();
         listaPracownikow = new ArrayList<Pracownik>();
+        magazyn = new Magazyn();
     }
 
     public void wyswietl() {}
@@ -60,6 +61,39 @@ public class Placowka
         listaWiezniow.add(w);
     }
 
+    public void usunWieznia(int id)
+    {
+        listaWiezniow.remove(id);
+    }
+
+    public void usunIzolatke(int id)
+    {
+        listaIzolatek.remove(id);
+    }
+
+    public void wyslijWiezniaDoIzolatki(Wiezien w)
+    {
+        for(int i=0; i<listaIzolatek.size(); i++)
+        {
+            if(listaIzolatek.get(i).sprawdzCzyJestPusta())
+            {
+                listaIzolatek.get(i).dodajWieznia(w);
+                return;
+            }
+        }
+    }
+
+    public void dodajPracownika(Pracownik p)
+    {
+        listaPracownikow.add(p);
+    }
+
+    public void usunPracownika(String login)
+    {
+        listaPracownikow.remove(getIdPracownika(login));
+    }
+
+
 }
 
 /*
@@ -83,8 +117,6 @@ public class Placowka
     "cos" :
         Archiwum
         Formularz
-
-
         Kurs
         Praca
         Produkt

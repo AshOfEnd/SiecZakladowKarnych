@@ -1,5 +1,5 @@
 public class Izolatka {
-    private int numerIzolatki;
+    private static int numerIzolatki = 0;
     private Wiezien wiezien;
 
     public Izolatka(int numerIzolatki, Wiezien wiezien) {
@@ -8,7 +8,8 @@ public class Izolatka {
     }
     public Izolatka()
     {
-
+        numerIzolatki++;
+        wiezien = null;
     }
 
     public void przydzielDoIzolatki() {}
@@ -28,5 +29,22 @@ public class Izolatka {
 
     public void setWiezien(Wiezien wiezien) {
         this.wiezien = wiezien;
+    }
+
+    public void usunWieznia()
+    {
+        wiezien = null;
+    }
+
+    public boolean sprawdzCzyJestPusta()
+    {
+        if(wiezien == null)
+            return true;
+        return false;
+    }
+
+    public void dodajWieznia(Wiezien w)
+    {
+        wiezien = w;
     }
 }
