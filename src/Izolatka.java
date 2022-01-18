@@ -6,6 +6,10 @@ public class Izolatka {
         this.numerIzolatki = numerIzolatki;
         this.wiezien = wiezien;
     }
+    public Izolatka()
+    {
+
+    }
 
     public void przydzielDoIzolatki() {}
     public void usunZIzolatki() {}

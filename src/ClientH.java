@@ -14,6 +14,8 @@ public class ClientH implements Runnable {
     private List<Lekarz>messages=new ArrayList<>();
     private List<Pracownik> pracownicy=new ArrayList<>();
 
+    private ArrayList<Placowka> placowki = new ArrayList<>();
+
     public ClientH(Socket clientSocket, ArrayList<ClientH> clients,ArrayList<String> imiona,ObjectOutputStream outStream,ObjectInputStream inStream) throws IOException, ClassNotFoundException
     {
         this.imiona=imiona;
@@ -92,6 +94,54 @@ public class ClientH implements Runnable {
                       out.println("lista pracownikow"+i+" "+ pracownicy.get(i));
                     }
                 }
+
+                else if(request.contains("dodaj_placowke"))
+                {
+                    out.println("dodaje nowa placowke");
+                    placowki.add(new Placowka());
+                }
+
+                else if(request.contains("dodaj_izolatke"))
+                {
+                    out.println("dodaje nowa izolatke");
+
+                }
+                else if(request.contains("dodaj_konserwatora"))
+                {
+                    out.println("dodaje nowego konserwatora");
+
+                }
+                else if(request.contains("dodaj_kucharza"))
+                {
+                    out.println("dodaje nowego kucharza");
+
+                }
+                else if(request.contains("dodaj_lekarza"))
+                {
+                    out.println("dodaje nowego lekarza ");
+
+                }
+                else if(request.contains("dodaj_naczelnika"))
+                {
+                    out.println("dodaje nowego naczelnika ");
+
+                }
+                else if(request.contains("dodaj_wieznia"))
+                {
+                    out.println("dodaje nowego wieznia");
+
+                }
+                else if(request.contains("dodaj_wychowawce"))
+                {
+                    out.println("dodaje nowego wychowace ");
+
+                }
+
+
+
+
+                    //else if(request.contains(""))
+
                 /*
                 {
                     out.println("na jakie konto chcesz sie zalogowac?");

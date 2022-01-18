@@ -4,6 +4,7 @@ public class Pracownik implements Serializable
 {
     private String imie;
     private String nazwisko;
+    private String login;
 
 
     public Pracownik(String imie, String nazwisko) {
@@ -31,5 +32,12 @@ public class Pracownik implements Serializable
 
     public void setNazwisko(String nazwisko) {
         this.nazwisko = nazwisko;
+    }
+
+    public boolean sprawdzCzyToOn(String login)
+    {
+        if(login == this.login)
+            return true;
+        return false;
     }
 }
