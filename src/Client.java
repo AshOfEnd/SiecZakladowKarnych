@@ -13,6 +13,7 @@ public class Client {
     private static final String Server_IP="127.0.0.1";
     private static final int Server_port=6666;
     private static BufferedReader in;
+    private static List<Integer> listap=new ArrayList<>();
 
 
 
@@ -24,7 +25,11 @@ public class Client {
         BufferedReader keyboard=new BufferedReader(new InputStreamReader(System.in));
         PrintWriter out=new PrintWriter(socket.getOutputStream(),true);
 
+        for(int i=0;i<15;i++)
+        {
+            listap.add(i);
 
+        }
         new Thread(serverConn).start();
 
         while (true) {

@@ -11,4 +11,8 @@ public class Magazynier extends Pracownik implements Serializable
     public void wydajTowar() {}
     public void zlozZamowienie() {}
     public void wyswietlMenu() {}
+    public String getName()
+    {
+        return getImie();
+    }
 }

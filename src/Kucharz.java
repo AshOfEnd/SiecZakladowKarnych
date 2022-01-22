@@ -1,4 +1,6 @@
-public class Kucharz extends Pracownik
+import java.io.Serializable;
+
+public class Kucharz extends Pracownik implements Serializable
 {
 
     public Kucharz(String imie, String nazwisko) {
