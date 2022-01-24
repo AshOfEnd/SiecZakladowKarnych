@@ -22,6 +22,7 @@ public class Placowka
 
     public Placowka()
     {
+        System.out.println("hehe");
         listaIzolatek = new ArrayList<Izolatka>();
         listaWiezniow = new ArrayList<Wiezien>();
         listaPracownikow = new ArrayList<Pracownik>();
@@ -84,6 +85,18 @@ public class Placowka
             if(listaIzolatek.get(i).sprawdzCzyJestPusta())
             {
                 listaIzolatek.get(i).dodajWieznia(w);
+                return;
+            }
+        }
+    }
+
+    public void usunWiezniaZIzolatki(Wiezien w)
+    {
+        for(int i=0; i<listaIzolatek.size(); i++)
+        {
+            if(listaIzolatek.get(i).getWiezien() == w)
+            {
+                listaIzolatek.get(i).setWiezien(null);
                 return;
             }
         }

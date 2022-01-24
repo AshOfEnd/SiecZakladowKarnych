@@ -21,6 +21,7 @@ public class ClientH implements Runnable {
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream is;
     private List<Lekarz>messages=new ArrayList<>();
+    private List<Placowka> placowki = new ArrayList<>();
 
 ////////////////////////////////////////////////////////////
     private List<Wiezien> wiezniowie=new ArrayList<>();
@@ -37,7 +38,6 @@ public class ClientH implements Runnable {
     private List<ZgloszenieUsterki> listaZgloszonychUsterek=new ArrayList<>();
     private List<Lek> leki=new ArrayList<>();
     //////////////////////////////////////////////////////////
-    private ArrayList<Placowka> placowki = new ArrayList<>();
     private String log;
 
     public ClientH(Socket clientSocket, ArrayList<ClientH> clients,ArrayList<String> imiona,ObjectOutputStream outStream,ObjectInputStream inStream) throws IOException, ClassNotFoundException
@@ -97,6 +97,8 @@ public class ClientH implements Runnable {
                 {
                     out.println("dodaje nowa placowke");
                     placowki.add(new Placowka());
+                    System.out.println("cghu");
+                    System.out.println("ta placowke to :" + placowki.get(0).tmp);
                 }
 
                 else if(request.contains("dodaj_izolatke"))
@@ -283,6 +285,7 @@ public class ClientH implements Runnable {
                         }
 
                     }
+
 
                 }
 
