@@ -1,3 +1,5 @@
+package aktywnoscWiezien;
+
 import java.util.ArrayList;
 
 public class Praca

@@ -1,3 +1,9 @@
+package serwerKlient;
+
+import aktywnoscWiezien.*;
+import pracownicy.*;
+import wyposazenie.*;
+
 import java.io.*;
 import java.net.Socket;
 import java.text.ParseException;
@@ -14,22 +20,24 @@ public class ClientH implements Runnable {
     private ArrayList<String> imiona;
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream is;
+    private List<Lekarz>messages=new ArrayList<>();
+    private List<Placowka> placowki = new ArrayList<>();
 
-
-    private List<Pracownik>PracownikWarszawa=new ArrayList<>();
-    private List<Pracownik>PracownikKrakow=new ArrayList<>();
-    private ArrayList<Wiezien> wiezniowieZabrze;
-    private ArrayList<Wiezien> wiezniowieWarszawa;
-    private ArrayList<Wiezien> wiezniowieKrakow;
-    private ArrayList<Pracownik>pracownikWarszawa;
-    private ArrayList<Pracownik>pracownikKrakow;
-    private ArrayList<Pracownik>pracownikZabrze;
-
-    private List<Placowka> placowka=new ArrayList<>();
 ////////////////////////////////////////////////////////////
-
+    private List<Wiezien> wiezniowie=new ArrayList<>();
+    private List<Skargi> skargi=new ArrayList<>();
+    private List<Pracownik> pracownicy=new ArrayList<>();
+    private List<Wiezien> praca=new ArrayList<>();
+    private List<Wiezien> KursUczestnicy=new ArrayList<>();
+    private List<Kurs> listaKursow=new ArrayList<>();
+    private List<Zamowienie> listaZamowien=new ArrayList<>();
+    private List<Produkt> listaProdoktow=new ArrayList<>();
+    private List<Kurs> ListaKursow=new ArrayList<>();
+    private List<Praca> listaPrac=new ArrayList<>();
+    private List<Raport>listaRaportow=new ArrayList<>();
+    private List<ZgloszenieUsterki> listaZgloszonychUsterek=new ArrayList<>();
+    private List<Lek> leki=new ArrayList<>();
     //////////////////////////////////////////////////////////
-    private ArrayList<Placowka> placowki = new ArrayList<>();
     private String log;
 
     public ClientH(Socket clientSocket, ArrayList<ClientH> clients,ArrayList<String> imiona,ObjectOutputStream outStream,ObjectInputStream inStream) throws IOException, ClassNotFoundException
@@ -64,131 +72,6 @@ public class ClientH implements Runnable {
 
 
 
-                    else if (request.contains("start")) {
-                        out.println("1. Zaklad Karny w Zabrzu");
-                        out.println("2. Zaklad Karny w Warszawie");
-                        out.println("3. Zaklad karny w Krakowie");
-                        out.println("4. Stworz nowy Zaklad Karny");
-                        String wybierz = in.readLine();
-                        if(request.contains("2"))
-                        {
-                            Placowka Warszawa=new Placowka( wiezniowieWarszawa=new ArrayList<>(),pracownikWarszawa=new ArrayList<>());
-                        }
-                        else if(request.contains("1")){
-                            Placowka Warszawa=new Placowka( wiezniowieZabrze=new ArrayList<>(),pracownikZabrze=new ArrayList<>());
-                        }
-                        else if(request.contains("3")){
-                            Placowka warszawa=new Placowka( wiezniowieKrakow=new ArrayList<>(),pracownikKrakow=new ArrayList<>());
-                            out.println("[[wybrales Zaklad Karny w Warszawie!]]");
-                            out.println("[[wpisz login aby zalogowac sie do systemu]]");
-                            String x = in.readLine();
-                            if (x.equals("0000")) {
-                                System.out.print("\033[H\033[2J");
-                                System.out.flush();
-                                out.println("[NACZELNIK]");
-                                while (true) {
-                                    out.println("OPCJE:");
-                                    out.println("1. wyswietl wiezni");
-                                    out.println("2. wyswietl pracownikow");
-                                    out.println("3. wyswietl skargi");
-                                    out.println("4. wyswietl raporty");
-                                    out.println("5. wyswietl zgloszone usterki");
-                                    out.println("q. dodaj wieznia");
-                                    out.println("w. dodaj pracownika");
-                                    out.println("e. dodaj do listy transferowej");
-                                    String z = in.readLine();
-                                    if (z.equals("1")) {
-                                        for (int i = 0; i < warszawa.getListaWiezniow().size(); i++) {
-                                            out.println("index: "+i+" "+warszawa.getListaWiezniow().get(i).getImie()+" "+warszawa.getListaWiezniow().get(i).getNazwisko()+"  ranga:"+warszawa.getListaWiezniow().get(i).getKlasa());
-                                            out.println("details:  "+warszawa.getListaWiezniow().get(i).getWiek()+"  data zwolnienia: "+warszawa.getListaWiezniow().get(i).getDataZwolnienia());
-                                        }
-                                    }
-                                    if (z.equals("2")) {
-                                        for (int i = 0; i < warszawa.getListaPracownikow().size(); i++) {
-                                            out.println("index: "+i+" "+warszawa.getListaPracownikow().get(i).getImie()+" "+warszawa.getListaPracownikow().get(i).getNazwisko()+"  nazwisko:"+warszawa.getListaPracownikow().get(i).getNazwisko());
-
-                                        }
-                                    }
-                                    if (z.equals("3")) {
-                                        for (int i = 0; i < warszawa.getListaPracownikow().size(); i++) {
-                                            out.println("index: "+i+" "+warszawa.getListaSkarg().get(i)+" "+warszawa.getListaPracownikow().get(i).getNazwisko()+"  nazwisko:"+warszawa.getListaPracownikow().get(i).getNazwisko());
-
-                                        }
-                                    }
-                                }
-
-                            }
-                        }
-                    else if (request.contains("lgoowanie")) {
-                            out.println("podaj login");
-
-                            String x = in.readLine();
-                            if (x.equals("1234")) {
-                                out.println("kotno: chuj");
-                                while (true) {
-                                    String z = in.readLine();
-                                    if (z.equals("d")) {
-                                        for (int i = 0; i < imiona.size(); i++) {
-                                            out.println(imiona.get(i));
-                                        }
-                                    }
-                                    if (z.equals("x")) {
-                                        out.println("[S] podaj imie:");
-                                        String imie = in.readLine();
-                                        imiona.add(imie);
-                                        out.println("[S] dodano imie: " + imie);
-                                    }
-                                }
-
-                            } else if (x.equals("0001")) {
-                                out.println("kotno: dupa");
-                                while (true) {
-                                    String z = in.readLine();
-                                    if (z.equals("d")) {
-                                        for (int i = 0; i < imiona.size(); i++) {
-                                            out.println(imiona.get(i));
-                                        }
-                                    }
-                                    if (z.equals("x")) {
-                                        out.println("[S] podaj imie:");
-                                        String imie = in.readLine();
-                                        imiona.add(imie);
-                                        out.println("[S] dodano imie: " + imie);
-                                    }
-                                }
-
-                            } else if (x.equals("0010")) {
-                                out.println("kotno: magazynier");
-                                while (true) {
-
-                                    String z = in.readLine();
-                                    if (z.equals("d")) {
-                                        for (int i = 0; i < imiona.size(); i++) {
-                                            out.println(imiona.get(i));
-                                        }
-                                    }
-                                    if (z.equals("x")) {
-                                        out.println("[S] podaj imie:");
-                                        String imie = in.readLine();
-                                        imiona.add(imie);
-                                        out.println("[S] dodano imie: " + imie);
-                                    }
-                                }
-
-                            }
-
-                        }
-
-                    }
-
-
-
-
-
-
-
-
-
                 }else if(request.contains("wyslij"))
                 {
                     out.println("rozpoczynam tworzenie tunelu..");
@@ -202,7 +85,7 @@ public class ClientH implements Runnable {
                 }else if(request.contains("prosba"))
                 {
                     out.println("dodaj");
-                  //  pracownicy=(List<Pracownik>) is.readObject();
+                  //  pracownicy=(List<pracownicy.Pracownik>) is.readObject();
                     System.out.println("dodano nowego pracownika!");
                     for(int i=0;i< pracownicy.size();i++)
                     {
@@ -214,6 +97,8 @@ public class ClientH implements Runnable {
                 {
                     out.println("dodaje nowa placowke");
                     placowki.add(new Placowka());
+                    System.out.println("cghu");
+                    System.out.println("ta placowke to :" + placowki.get(0));
                 }
 
                 else if(request.contains("dodaj_izolatke"))
@@ -224,7 +109,7 @@ public class ClientH implements Runnable {
                 else if(request.contains("dodaj_konserwatora"))
                 {
                     out.println("dodajkon");
-                  //  pracownicy=(List<Pracownik>) is.readObject();
+                  //  pracownicy=(List<pracownicy.Pracownik>) is.readObject();
                     System.out.println("dodano nowego pracownika!");
                     out.println("dodaje nowego konserwatora");
 
@@ -343,7 +228,66 @@ public class ClientH implements Runnable {
                         out.println("imiona: "+imiona.get(i));
                     }
                 }
+              else if (request.contains("lgoowanie")) {
+                    out.println("podaj login");
 
+                    String x = in.readLine();
+                    if (x.equals("1234")) {
+                        out.println("kotno: chuj");
+                        while (true) {
+                            String z = in.readLine();
+                            if (z.equals("d")) {
+                                for (int i = 0; i < imiona.size(); i++) {
+                                    out.println(imiona.get(i));
+                                }
+                            }
+                            if (z.equals("x")) {
+                                out.println("[S] podaj imie:");
+                                String imie = in.readLine();
+                                imiona.add(imie);
+                                out.println("[S] dodano imie: " + imie);
+                            }
+                        }
+
+                    } else if (x.equals("0001")) {
+                        out.println("kotno: dupa");
+                        while (true) {
+                            String z = in.readLine();
+                            if (z.equals("d")) {
+                                for (int i = 0; i < imiona.size(); i++) {
+                                    out.println(imiona.get(i));
+                                }
+                            }
+                            if (z.equals("x")) {
+                                out.println("[S] podaj imie:");
+                                String imie = in.readLine();
+                                imiona.add(imie);
+                                out.println("[S] dodano imie: " + imie);
+                            }
+                        }
+
+                    } else if (x.equals("0010")) {
+                        out.println("kotno: magazynier");
+                        while (true) {
+
+                            String z = in.readLine();
+                            if (z.equals("d")) {
+                                for (int i = 0; i < imiona.size(); i++) {
+                                    out.println(imiona.get(i));
+                                }
+                            }
+                            if (z.equals("x")) {
+                                out.println("[S] podaj imie:");
+                                String imie = in.readLine();
+                                imiona.add(imie);
+                                out.println("[S] dodano imie: " + imie);
+                            }
+                        }
+
+                    }
+
+
+                }
 
 
 
@@ -353,12 +297,12 @@ public class ClientH implements Runnable {
                 /*
                 {
                     out.println("na jakie konto chcesz sie zalogowac?");
-                    out.println("Wychowawca ");
-                    out.println("Naczelnik ");
-                    out.println("Magazynier ");
-                    out.println("Lekarz ");
-                    out.println("Kucharz ");
-                    out.println("Konserwator ");
+                    out.println("pracownicy.Wychowawca ");
+                    out.println("pracownicy.Naczelnik ");
+                    out.println("pracownicy.Magazynier ");
+                    out.println("pracownicy.Lekarz ");
+                    out.println("pracownicy.Kucharz ");
+                    out.println("pracownicy.Konserwator ");
                     OutputStream outputStream = client.getOutputStream();
                     ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
                         String login=in.readLine();
@@ -370,10 +314,10 @@ public class ClientH implements Runnable {
                         if(s.contains(haslo))
                         {
                             out.println("logowanie");
-                         //   objectOutputStream.writeObject(new Wychowawca("Jacek","kowalski"));
+                         //   objectOutputStream.writeObject(new pracownicy.Wychowawca("Jacek","kowalski"));
                         }
                     }
-                    if(login.contains("Naczelnik"))
+                    if(login.contains("pracownicy.Naczelnik"))
                     {
                         String haslo="swiat";
                         out.println("podaj haslo");
@@ -381,10 +325,10 @@ public class ClientH implements Runnable {
                         if(s.contains(haslo))
                         {
                             out.println("logowanie");
-                            objectOutputStream.writeObject(new Lekarz("Jacek","kowalski"));
+                            objectOutputStream.writeObject(new pracownicy.Lekarz("Jacek","kowalski"));
                         }
                     }
-                    if(login.contains("Magazynier"))
+                    if(login.contains("pracownicy.Magazynier"))
                     {
                         String haslo="i";
                         out.println("podaj haslo");
@@ -392,10 +336,10 @@ public class ClientH implements Runnable {
                         if(s.contains(haslo))
                         {
                             out.println("logowanie");
-                            objectOutputStream.writeObject(new Lekarz("Jacek","kowalski"));
+                            objectOutputStream.writeObject(new pracownicy.Lekarz("Jacek","kowalski"));
                         }
                     }
-                    if(login.contains("Lekarz"))
+                    if(login.contains("pracownicy.Lekarz"))
                     {
                         String haslo="szczesliwego";
                         out.println("podaj haslo");
@@ -403,7 +347,7 @@ public class ClientH implements Runnable {
                         if(s.contains(haslo))
                         {
                             out.println("logowanie");
-                            objectOutputStream.writeObject(new Lekarz("Jacek","kowalski"));
+                            objectOutputStream.writeObject(new pracownicy.Lekarz("Jacek","kowalski"));
                         }
                     }
                     if(login.contains("kucharz"))
@@ -414,7 +358,7 @@ public class ClientH implements Runnable {
                         if(s.contains(haslo))
                         {
                             out.println("logowanie");
-                            objectOutputStream.writeObject(new Lekarz("Jacek","kowalski"));
+                            objectOutputStream.writeObject(new pracownicy.Lekarz("Jacek","kowalski"));
                         }
                     }
                     if(login.contains("konserwator"))
@@ -425,7 +369,7 @@ public class ClientH implements Runnable {
                         if(s.contains(haslo))
                         {
                             out.println("logowanie");
-                            objectOutputStream.writeObject(new Lekarz("Jacek","kowalski"));
+                            objectOutputStream.writeObject(new pracownicy.Lekarz("Jacek","kowalski"));
                         }
                     }
 

@@ -1,3 +1,7 @@
+package aktywnoscWiezien;
+
+import wyposazenie.Lek;
+
 import java.util.ArrayList;
 import java.util.Date;
 

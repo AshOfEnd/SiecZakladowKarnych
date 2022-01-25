@@ -1,3 +1,5 @@
+package pracownicy;
+
 import java.io.Serializable;
 
 public class Pracownik implements Serializable
@@ -7,9 +9,10 @@ public class Pracownik implements Serializable
     private String login;
 
 
-    public Pracownik(String imie, String nazwisko) {
+    public Pracownik(String imie, String nazwisko, String login) {
         this.imie = imie;
         this.nazwisko = nazwisko;
+        this.login = login;
     }
 
     public void wypiszInformacje() {}

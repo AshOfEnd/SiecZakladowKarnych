@@ -1,13 +1,10 @@
+package serwerKlient;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.*;
-import java.net.Socket;
 import java.net.UnknownHostException;
-import java.nio.Buffer;
-import java.util.List;
-import java.util.Scanner;
 
 public class Client {
     private static final String Server_IP="127.0.0.1";

@@ -1,3 +1,5 @@
+package pracownicy;
+
 public class Naczelnik extends Pracownik
 {
 
