@@ -1,24 +1,17 @@
-public class Zamowienie
+package wyposazenie;
+
+public class Formularz
 {
-    private int id;
     private String nazwa;
     private int liczba;
 
-    public Zamowienie(int id, String nazwa, int liczba) {
-        this.id = id;
+    public Formularz(String nazwa, int liczba) {
         this.nazwa = nazwa;
         this.liczba = liczba;
     }
 
-    public void wyswietlZamowienie() {}
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void wyswietlFormularz() {}
+    public void wyslij() {}
 
     public String getNazwa() {
         return nazwa;

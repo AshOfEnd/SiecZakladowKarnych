@@ -1,3 +1,5 @@
+package pracownicy;
+
 import java.io.Serializable;
 
 public class Pracownik implements Serializable

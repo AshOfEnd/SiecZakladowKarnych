@@ -1,3 +1,9 @@
+package serwerKlient;
+
+import aktywnoscWiezien.*;
+import pracownicy.*;
+import wyposazenie.*;
+
 import java.io.*;
 import java.net.Socket;
 import java.text.ParseException;
@@ -79,7 +85,7 @@ public class ClientH implements Runnable {
                 }else if(request.contains("prosba"))
                 {
                     out.println("dodaj");
-                  //  pracownicy=(List<Pracownik>) is.readObject();
+                  //  pracownicy=(List<pracownicy.Pracownik>) is.readObject();
                     System.out.println("dodano nowego pracownika!");
                     for(int i=0;i< pracownicy.size();i++)
                     {
@@ -101,7 +107,7 @@ public class ClientH implements Runnable {
                 else if(request.contains("dodaj_konserwatora"))
                 {
                     out.println("dodajkon");
-                  //  pracownicy=(List<Pracownik>) is.readObject();
+                  //  pracownicy=(List<pracownicy.Pracownik>) is.readObject();
                     System.out.println("dodano nowego pracownika!");
                     out.println("dodaje nowego konserwatora");
 
@@ -288,12 +294,12 @@ public class ClientH implements Runnable {
                 /*
                 {
                     out.println("na jakie konto chcesz sie zalogowac?");
-                    out.println("Wychowawca ");
-                    out.println("Naczelnik ");
-                    out.println("Magazynier ");
-                    out.println("Lekarz ");
-                    out.println("Kucharz ");
-                    out.println("Konserwator ");
+                    out.println("pracownicy.Wychowawca ");
+                    out.println("pracownicy.Naczelnik ");
+                    out.println("pracownicy.Magazynier ");
+                    out.println("pracownicy.Lekarz ");
+                    out.println("pracownicy.Kucharz ");
+                    out.println("pracownicy.Konserwator ");
                     OutputStream outputStream = client.getOutputStream();
                     ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
                         String login=in.readLine();
@@ -305,10 +311,10 @@ public class ClientH implements Runnable {
                         if(s.contains(haslo))
                         {
                             out.println("logowanie");
-                         //   objectOutputStream.writeObject(new Wychowawca("Jacek","kowalski"));
+                         //   objectOutputStream.writeObject(new pracownicy.Wychowawca("Jacek","kowalski"));
                         }
                     }
-                    if(login.contains("Naczelnik"))
+                    if(login.contains("pracownicy.Naczelnik"))
                     {
                         String haslo="swiat";
                         out.println("podaj haslo");
@@ -316,10 +322,10 @@ public class ClientH implements Runnable {
                         if(s.contains(haslo))
                         {
                             out.println("logowanie");
-                            objectOutputStream.writeObject(new Lekarz("Jacek","kowalski"));
+                            objectOutputStream.writeObject(new pracownicy.Lekarz("Jacek","kowalski"));
                         }
                     }
-                    if(login.contains("Magazynier"))
+                    if(login.contains("pracownicy.Magazynier"))
                     {
                         String haslo="i";
                         out.println("podaj haslo");
@@ -327,10 +333,10 @@ public class ClientH implements Runnable {
                         if(s.contains(haslo))
                         {
                             out.println("logowanie");
-                            objectOutputStream.writeObject(new Lekarz("Jacek","kowalski"));
+                            objectOutputStream.writeObject(new pracownicy.Lekarz("Jacek","kowalski"));
                         }
                     }
-                    if(login.contains("Lekarz"))
+                    if(login.contains("pracownicy.Lekarz"))
                     {
                         String haslo="szczesliwego";
                         out.println("podaj haslo");
@@ -338,7 +344,7 @@ public class ClientH implements Runnable {
                         if(s.contains(haslo))
                         {
                             out.println("logowanie");
-                            objectOutputStream.writeObject(new Lekarz("Jacek","kowalski"));
+                            objectOutputStream.writeObject(new pracownicy.Lekarz("Jacek","kowalski"));
                         }
                     }
                     if(login.contains("kucharz"))
@@ -349,7 +355,7 @@ public class ClientH implements Runnable {
                         if(s.contains(haslo))
                         {
                             out.println("logowanie");
-                            objectOutputStream.writeObject(new Lekarz("Jacek","kowalski"));
+                            objectOutputStream.writeObject(new pracownicy.Lekarz("Jacek","kowalski"));
                         }
                     }
                     if(login.contains("konserwator"))
@@ -360,7 +366,7 @@ public class ClientH implements Runnable {
                         if(s.contains(haslo))
                         {
                             out.println("logowanie");
-                            objectOutputStream.writeObject(new Lekarz("Jacek","kowalski"));
+                            objectOutputStream.writeObject(new pracownicy.Lekarz("Jacek","kowalski"));
                         }
                     }
 

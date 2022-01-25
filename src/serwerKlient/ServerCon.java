@@ -1,10 +1,14 @@
+package serwerKlient;
+
+import pracownicy.Kucharz;
+import pracownicy.Lekarz;
+import pracownicy.Pracownik;
+
 import java.io.*;
 import java.net.Socket;
-import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class ServerCon implements Runnable{
     private Socket server;
@@ -111,12 +115,12 @@ ze wzgledu na dzialanie object output stream zawsze musi byc tworzony pierwszy
 po obu stronach komunikatora
 w przeciwnym wypadku deadlock
 wiec tak
-wysylanie i odbieranie obslugiwane tylko w klasie ServerCon
+wysylanie i odbieranie obslugiwane tylko w klasie serwerKlient.ServerCon
 nigdzie indziej nie da sie tego zrobic
 
 tam gdzie macie responde.equals("zakonczono")
 to jest odczytywanie obiektu wyslanego przez server
-wiadomosc "zakonczono" jest wysylana przez server w ClientH
+wiadomosc "zakonczono" jest wysylana przez server w serwer.ClientH
 wysylac i odbierac obiekty mozecie tylko do tej samej struktury
 czyli jesli zapisywane w liscie to wyslane tez musi byc w liscie
 a przynajmniej do takich wnioskow doszedlem metoda prob i bledow
@@ -130,7 +134,7 @@ wysyla liste obiektow
 w momencie w ktorym klient dostaje wiadomosc "zakonczono"
 uruchamiane jest odczytywanie obiektow
 co dziwne to odczytywwanie musi byc aktywne przed proba wyslania
-wiec ta kolejnosc ktora zastosowana jest w ClientH jest uzasadnioa
+wiec ta kolejnosc ktora zastosowana jest w serwer.ClientH jest uzasadnioa
 z wysylaniem jest analogicznie tylko w druga strone
 zakomentowany macie tez system logowania ale jak mowie
 to tylko szybka prowizorka nie wiem czy bedziemy chcieli takiego modelu uzywac

@@ -1,3 +1,9 @@
+package aktywnoscWiezien;
+
+import aktywnoscWiezien.Izolatka;
+import pracownicy.Pracownik;
+import wyposazenie.Magazyn;
+
 import java.util.ArrayList;
 
 public class Placowka
@@ -98,30 +104,30 @@ public class Placowka
 
 /*
     Ludzie :
-        Konserwator
-        Kucharz
-        Lekarz
-        Magazynier
-        Naczelnik
-        Wychowawca
+        pracownicy.Konserwator
+        pracownicy.Kucharz
+        pracownicy.Lekarz
+        pracownicy.Magazynier
+        pracownicy.Naczelnik
+        pracownicy.Wychowawca
 
-        Wiezien
-            Lek
-            Skargi
+        aktywnoscWiezien.Wiezien
+            wyposazenie.Lek
+            aktywnoscWiezien.Skargi
 
     Miejsca :
-        Placowka
-            Izolatka
-            Magazyn
+        aktywnoscWiezien.Placowka
+            aktywnoscWiezien.Izolatka
+            wyposazenie.Magazyn
 
     "cos" :
-        Archiwum
-        Formularz
-        Kurs
-        Praca
-        Produkt
-        Raport
-        Zamowienie
-        ZgloszenieUsterki
+        wyposazenie.Archiwum
+        wyposazenie.Formularz
+        aktywnoscWiezien.Kurs
+        aktywnoscWiezien.Praca
+        wyposazenie.Produkt
+        wyposazenie.Raport
+        wyposazenie.Zamowienie
+        wyposazenie.ZgloszenieUsterki
 
  */

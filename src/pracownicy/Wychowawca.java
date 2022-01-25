@@ -1,3 +1,9 @@
+package pracownicy;
+
+import aktywnoscWiezien.Kurs;
+import aktywnoscWiezien.Praca;
+import pracownicy.Pracownik;
+
 import java.util.ArrayList;
 
 public class Wychowawca extends Pracownik

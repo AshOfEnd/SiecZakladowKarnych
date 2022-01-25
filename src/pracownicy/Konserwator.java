@@ -1,3 +1,7 @@
+package pracownicy;
+
+import pracownicy.Pracownik;
+
 public class Konserwator extends Pracownik
 {
     public Konserwator(String imie, String nazwisko) {

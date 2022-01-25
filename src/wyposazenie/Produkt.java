@@ -1,3 +1,5 @@
+package wyposazenie;
+
 public class Produkt
 {
     private int liczba;

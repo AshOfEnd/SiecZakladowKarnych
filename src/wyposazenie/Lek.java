@@ -1,3 +1,5 @@
+package wyposazenie;
+
 public class Lek
 {
     private String nazwa;

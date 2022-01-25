@@ -1,3 +1,7 @@
+package aktywnoscWiezien;
+
+import aktywnoscWiezien.Wiezien;
+
 public class Skargi
 {
     private String tresc;

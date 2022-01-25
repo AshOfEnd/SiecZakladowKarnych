@@ -1,3 +1,5 @@
+package pracownicy;
+
 import java.io.Serializable;
 
 public class Magazynier extends Pracownik implements Serializable
