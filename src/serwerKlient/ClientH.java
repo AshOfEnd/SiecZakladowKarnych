@@ -57,7 +57,7 @@ public class ClientH implements Runnable {
     }
     @Override
     public void run() {
-
+            Placowka plac=new Placowka();
         try {
             while (true) {
                 String request = in.readLine();
@@ -120,7 +120,8 @@ public class ClientH implements Runnable {
                     String imie=in.readLine();
                     out.println("podaj nazwisko: ");
                     String nazwisko=in.readLine();
-                    pracownicy.add(new Kucharz(imie,nazwisko));
+
+                    plac.dodajPracownika(new Kucharz(imie,nazwisko));
                 }
                 else if(request.contains("dodaj_lekarza"))
                 {
@@ -128,7 +129,8 @@ public class ClientH implements Runnable {
                     String imie=in.readLine();
                     out.println("podaj nazwisko: ");
                     String nazwisko=in.readLine();
-                    pracownicy.add(new Lekarz(imie,nazwisko));
+
+                    plac.dodajPracownika(new Lekarz(imie,nazwisko));
 
                 }
                 else if(request.contains("dodaj_naczelnika"))
@@ -137,7 +139,7 @@ public class ClientH implements Runnable {
                     String imie=in.readLine();
                     out.println("podaj nazwisko: ");
                     String nazwisko=in.readLine();
-                    pracownicy.add(new Naczelnik(imie,nazwisko));
+                    plac.dodajPracownika(new Naczelnik(imie,nazwisko));
 
                     out.println("dodano nowego naczelnika!");
 
@@ -161,8 +163,8 @@ public class ClientH implements Runnable {
                     Date data1=new SimpleDateFormat("dd/MM/yyyy").parse(data);
                     int numerCP=Integer.parseInt(numerC);
 
-                    wiezniowie.add(new Wiezien(imie,nazwisko,klasa,wiekP,data1,(ArrayList<Skargi>) skargi,(ArrayList<Lek>) leki ,numerCP ));
 
+                    plac.dodajWieznia(new Wiezien(imie,nazwisko,klasa,wiekP,data1,(ArrayList<Skargi>) skargi,(ArrayList<Lek>) leki ,numerCP ));
                 }
                 else if(request.contains("dodaj_wychowawce"))
                 {
@@ -170,8 +172,8 @@ public class ClientH implements Runnable {
                     String imie=in.readLine();
                     out.println("podaj nazwisko: ");
                     String nazwisko=in.readLine();
-                    pracownicy.add(new Wychowawca(imie,nazwisko, (ArrayList<Kurs>) listaKursow, (ArrayList<Praca>) listaPrac));
 
+                    plac.dodajPracownika(new Wychowawca(imie,nazwisko, (ArrayList<Kurs>) listaKursow, (ArrayList<Praca>) listaPrac));
                     out.println("dodano nowego naczelnika!");
 
 
@@ -193,18 +195,22 @@ public class ClientH implements Runnable {
 
 
                 }
+                else if(request.contains("usun_wieznia")){
+                    out.println("podaj indeks pracownika ktorego chcesz usunac");
+
+                }
                 else if(request.contains("wyswietl_wiezni"))
                 {
                     for(int i=0;i<wiezniowie.size();i++)
                     {
-                        out.println("wiezniowie: "+i+wiezniowie.get(i).getImie()+" "+wiezniowie.get(i).getNazwisko());
+                        out.println("wiezniowie: "+i+plac.getListaWiezniow().get(i).getImie()+" "+plac.getListaWiezniow().get(i).getNazwisko());
                     }
                 }
                 else if(request.contains("wyswietl_pracownikow"))
                 {
                     for(int i=0;i<pracownicy.size();i++)
                     {
-                        out.println("Pracownicy: "+i+pracownicy.get(i).getImie()+" "+pracownicy.get(i).getNazwisko());
+                        out.println("Pracownicy: "+i+plac.getListaPracownikow().get(i).getImie()+" "+plac.getListaPracownikow().get(i).getNazwisko());
                     }
                 }
                 else if(request.contains("wyswietl_skargi"))
@@ -228,12 +234,13 @@ public class ClientH implements Runnable {
                         out.println("imiona: "+imiona.get(i));
                     }
                 }
+                /*
               else if (request.contains("lgoowanie")) {
                     out.println("podaj login");
 
                     String x = in.readLine();
                     if (x.equals("1234")) {
-                        out.println("kotno: chuj");
+
                         while (true) {
                             String z = in.readLine();
                             if (z.equals("d")) {
@@ -288,6 +295,8 @@ public class ClientH implements Runnable {
 
 
                 }
+
+                 */
 
 
 

@@ -13,7 +13,7 @@ public class Wychowawca extends Pracownik
 
 
     public Wychowawca(String imie, String nazwisko, ArrayList<Kurs> listaKursow, ArrayList<Praca> listaPrac) {
-        super(imie, nazwisko);
+        super(imie, nazwisko,"login");
         this.listaKursow = listaKursow;
         this.listaPrac = listaPrac;
     }

@@ -43,6 +43,7 @@ public class Placowka
     public ArrayList<Wiezien> getListaWiezniow() {
         return listaWiezniow;
     }
+    public ArrayList<Pracownik>getListaPracownikow(){return listaPracownikow;}
 
     public void setListaWiezniow(ArrayList<Wiezien> listaWiezniow) {
         this.listaWiezniow = listaWiezniow;

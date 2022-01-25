@@ -6,7 +6,7 @@ public class Magazynier extends Pracownik implements Serializable
 {
 
     public Magazynier(String imie, String nazwisko) {
-        super(imie, nazwisko);
+        super(imie, nazwisko,"login");
     }
 
     public void edytujZamowienie() {}

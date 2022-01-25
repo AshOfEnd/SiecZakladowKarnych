@@ -6,7 +6,7 @@ public class Kucharz extends Pracownik implements Serializable
 {
 
     public Kucharz(String imie, String nazwisko) {
-        super(imie, nazwisko);
+        super(imie, nazwisko,"login");
     }
 
     public void zlozZamowienie() {}
