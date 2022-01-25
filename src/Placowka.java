@@ -2,41 +2,73 @@ import java.util.ArrayList;
 
 public class Placowka
 {
-    private ArrayList<Izolatka> listaIzolatek;
-    private ArrayList<Wiezien> listaWiezniow;
     private Magazyn magazyn;
+    private ArrayList<Wiezien> listaWiezniow;
     private ArrayList<Pracownik> listaPracownikow;
+    private ArrayList<Skargi> listaSkarg;
+    private ArrayList<Wiezien> listaKursantow;
+    private ArrayList<Kurs> listaKursow;
+    private ArrayList<Zamowienie> listaZamowien;
+    private ArrayList<Produkt> listaProdoktow;
+    private ArrayList<Praca> listaPrac;
+    private ArrayList<Raport> listaRaportow;
+    private ArrayList<ZgloszenieUsterki> listaZgloszonychUsterek;
 
 
 
-    public Placowka(ArrayList<Izolatka> listaIzolatek, ArrayList<Wiezien> listaWiezniow) {
-        this.listaIzolatek = listaIzolatek;
+    public Placowka( ArrayList<Wiezien> listaWiezniow,ArrayList<Pracownik> listaPracownikow) {
         this.listaWiezniow = listaWiezniow;
+        this.listaPracownikow=listaPracownikow;
     }
 
     public Placowka()
     {
-        listaIzolatek = new ArrayList<Izolatka>();
+
         listaWiezniow = new ArrayList<Wiezien>();
         listaPracownikow = new ArrayList<Pracownik>();
+        listaSkarg=new ArrayList<Skargi>();
+        listaKursantow=new ArrayList<Wiezien>();
+        listaKursow=new ArrayList<Kurs>();
+        listaZamowien=new ArrayList<Zamowienie>();
+        listaProdoktow=new ArrayList<Produkt>();
+        listaPrac=new ArrayList<Praca>();
+        listaRaportow=new ArrayList<Raport>();
+        listaZgloszonychUsterek=new ArrayList<ZgloszenieUsterki>();
+
+
+
         magazyn = new Magazyn();
+    }
+    public void dodajRaport(Raport r)
+    {
+        listaRaportow.add(r);
+    }
+
+    public void dodajSkargi (Skargi s)
+    {
+        listaSkarg.add(s);
+    }
+    public void dodajKurs (Kurs k)
+    {
+        listaKursow.add(k);
     }
 
     public void wyswietl() {}
     public void przeniesWieznia() {}
 
-    public ArrayList<Izolatka> getListaIzolatek() {
-        return listaIzolatek;
-    }
 
-    public void setListaIzolatek(ArrayList<Izolatka> listaIzolatek) {
-        this.listaIzolatek = listaIzolatek;
-    }
+
+
 
     public ArrayList<Wiezien> getListaWiezniow() {
         return listaWiezniow;
     }
-
+    public ArrayList<Pracownik> getListaPracownikow(){
+        return listaPracownikow;
+    }
+    public ArrayList<Skargi> getListaSkarg(){
+        return listaSkarg;
+    }
     public void setListaWiezniow(ArrayList<Wiezien> listaWiezniow) {
         this.listaWiezniow = listaWiezniow;
     }
@@ -52,10 +84,7 @@ public class Placowka
         return 0;
     }
 
-    public void dodajIzolatke()
-    {
-        listaIzolatek.add(new Izolatka());
-    }
+
     public void dodajWieznia(Wiezien w)
     {
         listaWiezniow.add(w);
@@ -66,22 +95,9 @@ public class Placowka
         listaWiezniow.remove(id);
     }
 
-    public void usunIzolatke(int id)
-    {
-        listaIzolatek.remove(id);
-    }
 
-    public void wyslijWiezniaDoIzolatki(Wiezien w)
-    {
-        for(int i=0; i<listaIzolatek.size(); i++)
-        {
-            if(listaIzolatek.get(i).sprawdzCzyJestPusta())
-            {
-                listaIzolatek.get(i).dodajWieznia(w);
-                return;
-            }
-        }
-    }
+
+
 
     public void dodajPracownika(Pracownik p)
     {
@@ -92,6 +108,10 @@ public class Placowka
     {
         listaPracownikow.remove(getIdPracownika(login));
     }
+
+
+
+
 
 
 }
