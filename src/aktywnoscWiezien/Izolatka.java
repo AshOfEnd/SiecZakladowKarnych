@@ -1,5 +1,5 @@
 package aktywnoscWiezien;
-
+//
 public class Izolatka {
     private static int numerIzolatki = 0;
     private Wiezien wiezien;
