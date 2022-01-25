@@ -14,8 +14,7 @@ public class Izolatka {
         wiezien = null;
     }
 
-    public void przydzielDoIzolatki() {}
-    public void usunZIzolatki() {}
+
 
     public int getNumerIzolatki() {
         return numerIzolatki;
@@ -33,10 +32,7 @@ public class Izolatka {
         this.wiezien = wiezien;
     }
 
-    public void usunWieznia()
-    {
-        wiezien = null;
-    }
+
 
     public boolean sprawdzCzyJestPusta()
     {
@@ -49,4 +45,10 @@ public class Izolatka {
     {
         wiezien = w;
     }
+    public void usunWieznia()
+    {
+        wiezien = null;
+    }
+    public void przydzielDoIzolatki() {}
+    public void usunZIzolatki() {}
 }

@@ -53,7 +53,7 @@ Scanner scann=new Scanner(System.in);
 
                     }
                    else if (serverResponse.equals("dodaj")) {
-                        listaPracownikow.add(new Pracownik("jacek", "kurski"));
+                        listaPracownikow.add(new Pracownik("jacek", "kurski","logigim"));
                         objectOutputStream.writeObject(listaPracownikow);
                         System.out.println("rozpoczynasz dodawanie obiektu");
 

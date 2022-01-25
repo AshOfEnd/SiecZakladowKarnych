@@ -1,7 +1,7 @@
 package aktywnoscWiezien;
 
 import aktywnoscWiezien.Izolatka;
-import pracownicy.Pracownik;
+import pracownicy.*;
 import wyposazenie.Magazyn;
 
 import java.util.ArrayList;
@@ -58,21 +58,14 @@ public class Placowka
                 return i;
         return 0;
     }
-
-    public void dodajIzolatke()
-    {
-        listaIzolatek.add(new Izolatka());
-    }
-    public void dodajWieznia(Wiezien w)
-    {
-        listaWiezniow.add(w);
-    }
-
+    public void dodajWieznia(Wiezien w) {listaWiezniow.add(w);}
     public void usunWieznia(int id)
     {
         listaWiezniow.remove(id);
     }
+    public void wyswietlWieznia(Wiezien w) {w.wyswietlInformacje();}
 
+    public void dodajIzolatke() {listaIzolatek.add(new Izolatka());}
     public void usunIzolatke(int id)
     {
         listaIzolatek.remove(id);
@@ -106,11 +99,17 @@ public class Placowka
     {
         listaPracownikow.add(p);
     }
-
     public void usunPracownika(String login)
     {
         listaPracownikow.remove(getIdPracownika(login));
     }
+    public int znajdzPracownika(String login)
+    {
+        return getIdPracownika(login);
+    }
+    public void wyswietlPracownika(String login){ listaPracownikow.get(getIdPracownika(login)).wypiszInformacje();}
+
+    public void zlozZamowienie(Magazynier m){ m.zlozZamowienie();}
 
 
 }

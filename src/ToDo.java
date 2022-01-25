@@ -5,22 +5,22 @@ public class ToDo
 
  placowka :
         izolatka
-            dodajIzolatke
-            usunIzolatke
-            dodajWiezniaDoIzolatki
-            usunWiezniaZIzolatki
+            dodajIzolatke +
+            usunIzolatke +
+            dodajWiezniaDoIzolatki +
+            usunWiezniaZIzolatki +
         wiezien
-            dodajWieznia
-            usunWieznia
-            wyswietlWieznia
+            dodajWieznia +
+            usunWieznia +
+            wyswietlWieznia +
         magazyn
-            zlozZamowienie
+            zlozZamowienie +
 
         pracownik
-            dodajPracownika
-            usunPracownika
-            znajdzPracownika
-            wyswietlPracownika
+            dodajPracownika +
+            usunPracownika +
+            znajdzPracownika +
+            wyswietlPracownika +
 
 
 
