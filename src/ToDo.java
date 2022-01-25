@@ -2,7 +2,8 @@ public class ToDo
 {
     /*
 
-    placowka :
+
+ placowka :
         izolatka
             dodajIzolatke
             usunIzolatke
@@ -20,7 +21,6 @@ public class ToDo
             usunPracownika
             znajdzPracownika
             wyswietlPracownika
-
 
 
 

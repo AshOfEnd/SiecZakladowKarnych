@@ -98,7 +98,7 @@ public class ClientH implements Runnable {
                     out.println("dodaje nowa placowke");
                     placowki.add(new Placowka());
                     System.out.println("cghu");
-                    System.out.println("ta placowke to :" + placowki.get(0).tmp);
+                    System.out.println("ta placowke to :" + placowki.get(0));
                 }
 
                 else if(request.contains("dodaj_izolatke"))
