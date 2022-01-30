@@ -27,6 +27,10 @@ public class ServerCon implements Runnable{
 
 
                 String serverResponse = in.readLine();
+                if(serverResponse.equals("pozytywny"))
+                {
+
+                }
                 if(serverResponse.equals("zakonczono"))
                 {
 
