@@ -1,3 +1,9 @@
+package pracownicy;
+
+import aktywnoscWiezien.Kurs;
+import aktywnoscWiezien.Praca;
+import pracownicy.Pracownik;
+
 import java.util.ArrayList;
 
 public class Wychowawca extends Pracownik
@@ -7,7 +13,7 @@ public class Wychowawca extends Pracownik
 
 
     public Wychowawca(String imie, String nazwisko, ArrayList<Kurs> listaKursow, ArrayList<Praca> listaPrac) {
-        super(imie, nazwisko);
+        super(imie, nazwisko,"login");
         this.listaKursow = listaKursow;
         this.listaPrac = listaPrac;
     }

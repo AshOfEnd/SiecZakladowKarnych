@@ -1,3 +1,5 @@
+package wyposazenie;
+
 import java.util.ArrayList;
 
 public class Archiwum

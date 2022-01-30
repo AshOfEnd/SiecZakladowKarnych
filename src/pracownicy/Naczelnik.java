@@ -1,8 +1,10 @@
+package pracownicy;
+
 public class Naczelnik extends Pracownik
 {
 
     public Naczelnik(String imie, String nazwisko) {
-        super(imie, nazwisko);
+        super(imie, nazwisko,"login");
     }
 
     public void przydzielWiezniaDoCeli() {}

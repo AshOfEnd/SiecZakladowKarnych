@@ -1,3 +1,5 @@
+package wyposazenie;
+
 import java.util.ArrayList;
 
 public class Magazyn
@@ -8,6 +10,12 @@ public class Magazyn
     public Magazyn(ArrayList<Produkt> listaProduktów, ArrayList<Zamowienie> listaZamowien) {
         this.listaProduktów = listaProduktów;
         this.listaZamowien = listaZamowien;
+    }
+
+    public Magazyn()
+    {
+        listaProduktów = new ArrayList<>();
+        listaZamowien = new ArrayList<>();
     }
 
     public void dodajZamowienie(Zamowienie zam) {}
