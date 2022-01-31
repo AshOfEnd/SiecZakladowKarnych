@@ -76,6 +76,7 @@ public class ClientH  implements Runnable {
 
                             if(command.equals("wyslij"))
                             {
+                                out.println("xd");
                                 String login=in.readLine();
                                 String password=in.readLine();
                                 if(login.equals("aaa") && password.equals("0000"))

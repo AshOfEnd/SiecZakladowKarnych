@@ -19,7 +19,7 @@ public class Client implements ActionListener {
 
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, UnknownHostException {
-
+System.out.println("siema");
         Socket socket=new Socket(Server_IP,Server_port);//utworzenie polaczenie z serverem
 
         in=new BufferedReader(new InputStreamReader(socket.getInputStream()));
