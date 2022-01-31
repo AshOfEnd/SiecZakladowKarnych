@@ -27,11 +27,25 @@ public class Wiezien
         this.numerCeli = numerCeli;
     }
 
-    public void wyswietlInformacje() {}
-    public void przypiszLek() {}
-    public void zmienCele() {}
-    public void wyswietlSkargi() {}
-    public void zmienKlase() {}
+    public void wyswietlInformacje() {
+        //gui
+    }
+    public void przypiszLek(String nazwa, String dawka) {
+        Lek lek = new Lek(nazwa,dawka);
+        listaLekow.add(lek);
+    }
+    public void zmienCele(int numerCeli) {
+        this.numerCeli = numerCeli;
+    }
+    public void wyswietlSkargi() {
+        //gui
+    }
+    public void zmienKlase(String klasa) {
+        this.klasa = klasa;
+    }
+    public void dodajSkarge(Skargi skarga){
+        skargi.add(skarga);
+    }
 
     public String getImie() {
         return imie;

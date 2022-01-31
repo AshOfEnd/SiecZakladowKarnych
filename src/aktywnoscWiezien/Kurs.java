@@ -27,4 +27,12 @@ public class Kurs
     public void setNazwaKursu(String nazwaKursu) {
         this.nazwaKursu = nazwaKursu;
     }
+
+    public void dodajDoKursu(Wiezien wiezien) {
+        czlonkowieKursu.add(wiezien);
+    }
+
+    public void usunZKursu(Wiezien wiezien) {
+
+    }
 }

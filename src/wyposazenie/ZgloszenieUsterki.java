@@ -8,6 +8,12 @@ public class ZgloszenieUsterki
     private Date data;
     private boolean stan;
 
+    public ZgloszenieUsterki(String tresc, Date data) {
+        this.tresc =tresc;
+        this.data =data;
+        this.stan = false; //false oznacza że usterka nie została naprawiona
+    }
+
     public void wyswietlFormularz()
     {
         System.out.println("Wyswietl Formularz");

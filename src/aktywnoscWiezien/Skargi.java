@@ -2,18 +2,20 @@ package aktywnoscWiezien;
 
 import aktywnoscWiezien.Wiezien;
 
+import java.util.Date;
+
 public class Skargi
 {
     private String tresc;
-    private Wiezien wiezien;
+    private Date data;
 
-    public Skargi(String tresc, Wiezien wiezien) {
+    public Skargi(String tresc, Date data) {
         this.tresc = tresc;
-        this.wiezien = wiezien;
     }
 
-    public void wyswietlSkarge() {}
-    public void wyslij() {}
+    public void wyswietlSkarge() {
+        //gui
+    }
 
     public String getTresc() {
         return tresc;
@@ -23,11 +25,4 @@ public class Skargi
         this.tresc = tresc;
     }
 
-    public Wiezien getWiezien() {
-        return wiezien;
-    }
-
-    public void setWiezien(Wiezien wiezien) {
-        this.wiezien = wiezien;
-    }
 }

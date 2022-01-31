@@ -9,7 +9,7 @@ public class Raport
     private String trescRaportu;
     private int data;
 
-    public Raport(String imie, String nazwisko, String trescRaportu, int data) {
+    public Raport(String imie, String nazwisko, String trescRaportu, Date data) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.trescRaportu = trescRaportu;

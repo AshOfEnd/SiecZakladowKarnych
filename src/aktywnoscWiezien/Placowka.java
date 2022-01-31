@@ -30,7 +30,7 @@ public class Placowka
     }
 
     public void wyswietl() {}
-    public void przeniesWieznia() {}
+    public void przeniesWieznia(Wiezien wiezien) {}
 
     public ArrayList<Izolatka> getListaIzolatek() {
         return listaIzolatek;
@@ -110,7 +110,6 @@ public class Placowka
     }
     public void wyswietlPracownika(String login){ listaPracownikow.get(getIdPracownika(login)).wypiszInformacje();}
 
-    public void zlozZamowienie(Magazynier m){ m.zlozZamowienie();}
 
 
 }

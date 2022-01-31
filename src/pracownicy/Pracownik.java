@@ -1,6 +1,12 @@
 package pracownicy;
 
+import aktywnoscWiezien.Skargi;
+import aktywnoscWiezien.Wiezien;
+import wyposazenie.Archiwum;
+import wyposazenie.ZgloszenieUsterki;
+
 import java.io.Serializable;
+import java.util.Date;
 
 public class Pracownik implements Serializable
 {
@@ -15,9 +21,17 @@ public class Pracownik implements Serializable
         this.login = login;
     }
 
-    public void wypiszInformacje() {}
-    public void zglosSkrage() {}
-    public void zglosUsterke() {}
+    public void wypiszInformacje() {
+        //gui
+    }
+    public void zglosSkrage(Wiezien wiezien, String tresc, Date data) {
+        Skargi skarga = new Skargi(tresc,data);
+        wiezien.dodajSkarge(skarga);
+    }
+    public void zglosUsterke(Archiwum archiwum,String tresc, Date data) {
+        ZgloszenieUsterki zgloszenieUsterki = new ZgloszenieUsterki(tresc,data);
+        archiwum.dodajUsterke(zgloszenieUsterki);
+    }
     public void wyswietlMenu() {}
 
 

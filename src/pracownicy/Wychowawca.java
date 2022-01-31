@@ -2,6 +2,7 @@ package pracownicy;
 
 import aktywnoscWiezien.Kurs;
 import aktywnoscWiezien.Praca;
+import aktywnoscWiezien.Wiezien;
 import pracownicy.Pracownik;
 
 import java.util.ArrayList;
@@ -18,8 +19,12 @@ public class Wychowawca extends Pracownik
         this.listaPrac = listaPrac;
     }
 
-    public void dodajWiezniaDoKursu() {}
-    public void usunWiezniaZKursu() {}
+    public void dodajWiezniaDoKursu(Wiezien wiezien,Kurs kurs) {
+        kurs.dodajDoKursu(wiezien);
+    }
+    public void usunWiezniaZKursu(Kurs kurs,Wiezien wiezien) {
+        kurs.usunZKursu(wiezien);
+    }
     public void przydzielWiezniaDoPracy() {}
     public void usunWiezniaZPracy() {}
     public void wyswietlMenu() {}

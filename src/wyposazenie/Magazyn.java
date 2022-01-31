@@ -27,7 +27,7 @@ public class Magazyn
     {
 
     }
-    public void dodajDoMagazynu(Zamowienie zam)
+    public void dodajDoMagazynu()
     {
 
     }
@@ -47,4 +47,5 @@ public class Magazyn
     public void setListaZamowien(ArrayList<Zamowienie> listaZamowien) {
         this.listaZamowien = listaZamowien;
     }
+
 }
