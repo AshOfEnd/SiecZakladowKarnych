@@ -7,17 +7,19 @@ public class Raport
     private String imie;
     private String nazwisko;
     private String trescRaportu;
-    private Date data;
+    private int data;
 
-    public Raport(String imie, String nazwisko, String trescRaportu, Date data) {
+    public Raport(String imie, String nazwisko, String trescRaportu, int data) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.trescRaportu = trescRaportu;
         this.data = data;
     }
 
-    public void wyslij() {}
-    public void formularzRaportu() {}
+    public void formularzRaportu()
+    {
+        System.out.println("Formularz raportu");
+    }
 
     public String getImie() {
         return imie;
@@ -43,11 +45,11 @@ public class Raport
         this.trescRaportu = trescRaportu;
     }
 
-    public Date getData() {
+    public int getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(int data) {
         this.data = data;
     }
 }

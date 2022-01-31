@@ -12,7 +12,17 @@ public class Zamowienie
         this.liczba = liczba;
     }
 
-    public void wyswietlZamowienie() {}
+    public void wyswietlZamowienie()
+    {
+        System.out.println("WyswietlZamowienie");
+    }
+
+    public void edytujZamowienie(Zamowienie zamowienie)
+    {
+        setId(id);
+        setLiczba(liczba);
+        setNazwa(nazwa);
+    }
 
     public int getId() {
         return id;

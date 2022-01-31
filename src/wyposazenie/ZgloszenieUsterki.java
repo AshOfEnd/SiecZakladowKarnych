@@ -8,8 +8,16 @@ public class ZgloszenieUsterki
     private Date data;
     private boolean stan;
 
-    public void wyswietlFormularz() {}
-    public void wyslij() {}
-
-
+    public void wyswietlFormularz()
+    {
+        System.out.println("Wyswietl Formularz");
+    }
+    public void zmienStanZgloszenie(boolean stan)
+    {
+        if(stan == true)
+        {
+            stan = false;
+        }
+        stan = true;
+    }
 }

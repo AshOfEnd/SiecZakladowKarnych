@@ -18,10 +18,19 @@ public class Magazyn
         listaZamowien = new ArrayList<>();
     }
 
-    public void dodajZamowienie(Zamowienie zam) {}
-    public void edytujZamowienie(Zamowienie zam) {}
-    public void wydajTowar() {}
-    public void dodajDoMagazynu() {}
+    public void dodajZamowienie(Zamowienie zam)
+    {
+        listaZamowien.add(zam);
+    }
+
+    public void wydajTowar(Zamowienie zam)
+    {
+
+    }
+    public void dodajDoMagazynu(Zamowienie zam)
+    {
+
+    }
 
     public ArrayList<Produkt> getListaProduktów() {
         return listaProduktów;

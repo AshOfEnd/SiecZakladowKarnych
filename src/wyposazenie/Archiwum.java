@@ -1,6 +1,8 @@
 package wyposazenie;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Archiwum
 {
@@ -18,9 +20,19 @@ public class Archiwum
         this.listaZgloszonychUsterek = listaZgloszonychUsterek;
     }
 
-    public void dodajRaport() {}
-    public void wyswietlZgloszenie() {}
-    public void zmienStanZgloszenie() {}
+    public void dodajRaport(Raport raport)
+    {
+        listaRaportow.add(raport);
+    }
+    public void dodajUsterke(ZgloszenieUsterki zgloszenieUsterki)
+    {
+        listaZgloszonychUsterek.add(zgloszenieUsterki);
+    }
+    public void wyswietlZgloszenie()
+    {
+        System.out.println("Wyswietl zgloszenie usterki"+listaZgloszonychUsterek);
+    }
+
 
     public ArrayList<Raport> getListaRaportow() {
         return listaRaportow;
@@ -38,3 +50,5 @@ public class Archiwum
         this.listaZgloszonychUsterek = listaZgloszonychUsterek;
     }
 }
+
+
