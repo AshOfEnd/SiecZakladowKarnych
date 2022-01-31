@@ -5,6 +5,10 @@ import aktywnoscWiezien.*;
 import pracownicy.*;
 import wyposazenie.*;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.net.Socket;
 import java.text.ParseException;
@@ -66,75 +70,90 @@ public class ClientH  implements Runnable {
 
 
                     while(true) {
-                        out.println("wybierz placowke:");
-                        out.println("1. Placowka w Krakowie");
-                        out.println("1. Placowka w Warszawie");
-                        out.println("1. Placowka w Poznaniu");
-                        String placowka = in.readLine();
-                        if (placowka.contains("1")) {
-                            while (true) {
+
+                        String command = in.readLine();
 
 
-                                String log = "aaa";
-                                String pass = "0000";
-                                out.println("[[ZK W KRAKOWIE]]");
-                                out.println("zaloguj sie ");
-                                out.println("login");
-                                String login = in.readLine();
-                                out.println("haslo");
-                                String haslo = in.readLine();
-                                if(login.equals("0") || haslo.equals("0"))
+                            if(command.equals("wyslij"))
+                            {
+                                String login=in.readLine();
+                                String password=in.readLine();
+                                if(login.equals("aaa") && password.equals("0000"))
                                 {
-                                    break;
+                                    out.println("access");
                                 }
-                                if (login.equals(log) && haslo.equals(pass)) {
-                                    out.println("udalo ci sie zalogowac!");
-                                    while (true) {
-                                        String command = in.readLine();
-                                        if (command.equals("help")) {
-                                            out.println("zbior dostepnych komend:");
-                                            out.println("sss");
-                                            out.println("zzz");
-                                            out.println("yyy");
-                                            out.println("kliknij 0 aby sie wylogowac");
-                                        }
-                                        if (command.equals("ggg")) {
-                                            StartWindow a=new StartWindow();
-                                            a.setVisible(true);
-                                            out.println("huj");
-                                            out.println("[[kliknij ENTER zeby kontynuowac]]");
 
+                            }
+                            if(command.equals("proba"))
+                            {
+                                out.println("dziala");
+                            }
+                            if(command.equals("dodaj_wieznia"))
+                            {
+                                out.println("dziala");
+                                JFrame frame2=new JFrame();
+                                JPanel panel=new JPanel();
+                                panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
+                                frame2.add(panel, BorderLayout.CENTER);
+                                frame2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                                frame2.setTitle("dodaj-wieznia ");
+                                frame2.pack();
+                                JTextField imie=new JTextField();
+                                imie.setBounds(100,20,165,25);
+                                JTextField nazwisko=new JTextField();
+                                nazwisko.setBounds(100,30,165,25);
+                                JTextField klasa=new JTextField();
+                                klasa.setBounds(100,40,165,25);
+                                JTextField wiek=new JTextField();
+                                wiek.setBounds(100,40,165,25);
+                                JTextField dataZwolnienia=new JTextField();
+                                dataZwolnienia.setBounds(100,50,165,25);
+                                JTextField numerCeli=new JTextField();
+                                numerCeli.setBounds(100,60,165,25);
+                                JButton button=new JButton("zatwierdz");
+                                button.setBounds(10,80,80,25);
+                                button.addActionListener(new ActionListener() {
+                                    @Override
+                                    public void actionPerformed(ActionEvent e) {
+                                        out.println("wyslij");
+                                        String user = imie.getText();
+                                        String nazw = nazwisko.getText();
+                                        String kl = klasa.getText();
+                                        String age = wiek.getText();
+                                        String data = dataZwolnienia.getText();
+                                        String cela = numerCeli.getText();
+                                        int wiek1 = Integer.parseInt(age);
+                                        int nrCeli=Integer.parseInt(cela);
+                                        Date date1 = null;
+                                        try {
+                                            date1 = new SimpleDateFormat("dd/MM/yyyy").parse(data);
+                                        } catch (ParseException ex) {
+                                            ex.printStackTrace();
                                         }
-                                        if (command.equals("zzz")) {
-                                            out.println("huj2");
-                                            out.println("[[kliknij ENTER zeby kontynuowac]]");
 
-                                        }
-                                        if (command.equals("0")) {
-                                            out.println("wylogowywanie...");
-                                            break;
-                                        }
-                                        if(command.startsWith("say"))
-                                        {
-                                            int firtsSpace=command.indexOf(" ");
-                                            if(firtsSpace!=-1)
-                                            {
-                                                outToAll(command.substring(firtsSpace+1));
-                                            }
+                                        plac.getListaWiezniow().add(new Wiezien(user, nazw, kl, wiek1, date1,new ArrayList<Skargi>(),new ArrayList<Lek>(),nrCeli ));
 
-
-
-                                        }
 
                                     }
-                                } else {
-                                    out.println("zle haslo lub login, sprobuj ponownie");
-                                    continue;
-                                }
+                                });
+                                panel.add(imie);
+                                panel.add(nazwisko);
+                                panel.add(klasa);
+                                panel.add(wiek);
+                                panel.add(dataZwolnienia);
+                                panel.add(numerCeli);
+
+                                frame2.setVisible(true);
                             }
 
-                        }
-                    }
+
+
+                            }
+
+                        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
                 /*
               else if (request.contains("lgoowanie")) {
@@ -288,25 +307,6 @@ public class ClientH  implements Runnable {
                 */
 
 
-        }catch (IOException e) {
-            System.err.println("IOX ");
-            System.err.println(e.getStackTrace());
 
-        } finally {
-            out.close();
-            try {
-                in.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-                System.err.println("IOX close ");
-
-            }
-        }
-    }
-    private void outToAll(String msg){
-        for(ClientH aClients:clients){
-            aClients.out.println(msg);
-        }
-    }
 
 }
