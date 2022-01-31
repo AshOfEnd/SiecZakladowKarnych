@@ -1,5 +1,6 @@
 package serwerKlient;
 
+import GUI.StartWindow;
 import serwerKlient.ClientH;
 
 import java.io.*;
@@ -35,10 +36,9 @@ public class ServerW {
             System.out.println("[S] oczekiwanie na polaczenie...");
             Socket client = listenner.accept();
             System.out.println("[S] polaczono!");
-            ObjectOutputStream objectOutputStream=new ObjectOutputStream(client.getOutputStream());
-            ObjectInputStream   is = new ObjectInputStream(client.getInputStream());
 
-            ClientH clientThread = new ClientH(client, clients, imiona,objectOutputStream,is);
+
+            ClientH clientThread = new ClientH(client, clients, imiona,new StartWindow());
             clients.add(clientThread);
             System.out.println("nowy klient dodany!");
             pool.execute(clientThread);

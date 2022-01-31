@@ -1,5 +1,6 @@
 package serwerKlient;
 
+import GUI.StartWindow;
 import aktywnoscWiezien.*;
 import pracownicy.*;
 import wyposazenie.*;
@@ -12,16 +13,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ClientH implements Runnable {
+public class ClientH  implements Runnable {
     private Socket client;
     private BufferedReader in;
     private PrintWriter out;
     private ArrayList<ClientH> clients;
     private ArrayList<String> imiona;
     private ObjectOutputStream objectOutputStream;
-    private ObjectInputStream is;
+    private StartWindow startWindow;
     private List<Lekarz>messages=new ArrayList<>();
-    private List<Placowka> placowki = new ArrayList<>();
+
 
 ////////////////////////////////////////////////////////////
     private List<Wiezien> wiezniowie=new ArrayList<>();
@@ -39,16 +40,17 @@ public class ClientH implements Runnable {
     private List<Lek> leki=new ArrayList<>();
     //////////////////////////////////////////////////////////
     private String log;
+    private StartWindow a;
 
-    public ClientH(Socket clientSocket, ArrayList<ClientH> clients,ArrayList<String> imiona,ObjectOutputStream outStream,ObjectInputStream inStream) throws IOException, ClassNotFoundException
+    public ClientH(Socket clientSocket, ArrayList<ClientH> clients,ArrayList<String> imiona ,StartWindow a) throws IOException, ClassNotFoundException
     {
         this.imiona=imiona;
         this.clients=clients;
         this.client=clientSocket;
         in=new BufferedReader(new InputStreamReader(client.getInputStream()));
         out=new PrintWriter(client.getOutputStream(),true);
-        this.objectOutputStream=outStream;
-        this.is=inStream;
+
+        this.startWindow=a;
 
     }
     String dwie(){
@@ -59,181 +61,81 @@ public class ClientH implements Runnable {
     public void run() {
             Placowka plac=new Placowka();
         try {
-            while (true) {
-                String request = in.readLine();
-                //   String command=keyboard.readLine();
-                if(request.startsWith("say"))
-                {
-                    int firtsSpace=request.indexOf(" ");
-                    if(firtsSpace!=-1)
-                    {
-                        outToAll(request.substring(firtsSpace+1));
+
+                    //   String command=keyboard.readLine();
+
+
+                    while(true) {
+                        out.println("wybierz placowke:");
+                        out.println("1. Placowka w Krakowie");
+                        out.println("1. Placowka w Warszawie");
+                        out.println("1. Placowka w Poznaniu");
+                        String placowka = in.readLine();
+                        if (placowka.contains("1")) {
+                            while (true) {
+
+
+                                String log = "aaa";
+                                String pass = "0000";
+                                out.println("[[ZK W KRAKOWIE]]");
+                                out.println("zaloguj sie ");
+                                out.println("login");
+                                String login = in.readLine();
+                                out.println("haslo");
+                                String haslo = in.readLine();
+                                if(login.equals("0") || haslo.equals("0"))
+                                {
+                                    break;
+                                }
+                                if (login.equals(log) && haslo.equals(pass)) {
+                                    out.println("udalo ci sie zalogowac!");
+                                    while (true) {
+                                        String command = in.readLine();
+                                        if (command.equals("help")) {
+                                            out.println("zbior dostepnych komend:");
+                                            out.println("sss");
+                                            out.println("zzz");
+                                            out.println("yyy");
+                                            out.println("kliknij 0 aby sie wylogowac");
+                                        }
+                                        if (command.equals("ggg")) {
+                                            StartWindow a=new StartWindow();
+                                            a.setVisible(true);
+                                            out.println("huj");
+                                            out.println("[[kliknij ENTER zeby kontynuowac]]");
+
+                                        }
+                                        if (command.equals("zzz")) {
+                                            out.println("huj2");
+                                            out.println("[[kliknij ENTER zeby kontynuowac]]");
+
+                                        }
+                                        if (command.equals("0")) {
+                                            out.println("wylogowywanie...");
+                                            break;
+                                        }
+                                        if(command.startsWith("say"))
+                                        {
+                                            int firtsSpace=command.indexOf(" ");
+                                            if(firtsSpace!=-1)
+                                            {
+                                                outToAll(command.substring(firtsSpace+1));
+                                            }
+
+
+
+                                        }
+
+                                    }
+                                } else {
+                                    out.println("zle haslo lub login, sprobuj ponownie");
+                                    continue;
+                                }
+                            }
+
+                        }
                     }
 
-
-
-                }else if(request.contains("wyslij"))
-                {
-                    out.println("rozpoczynam tworzenie tunelu..");
-                    out.println("zakonczono");
-                    messages.add(new Lekarz("siema","gierczak"));
-                    objectOutputStream.writeObject(messages);
-
-
-
-
-                }else if(request.contains("prosba"))
-                {
-                    out.println("dodaj");
-                  //  pracownicy=(List<pracownicy.Pracownik>) is.readObject();
-                    System.out.println("dodano nowego pracownika!");
-                    for(int i=0;i< pracownicy.size();i++)
-                    {
-                      out.println("lista pracownikow"+i+" "+ pracownicy.get(i));
-                    }
-                }
-
-                else if(request.contains("dodaj_placowke"))
-                {
-                    out.println("dodaje nowa placowke");
-                    placowki.add(new Placowka());
-                    System.out.println("cghu");
-                    System.out.println("ta placowke to :" + placowki.get(0));
-                }
-
-                else if(request.contains("dodaj_izolatke"))
-                {
-                    out.println("dodaje nowa izolatke");
-
-                }
-                else if(request.contains("dodaj_konserwatora"))
-                {
-                    out.println("dodajkon");
-                  //  pracownicy=(List<pracownicy.Pracownik>) is.readObject();
-                    System.out.println("dodano nowego pracownika!");
-                    out.println("dodaje nowego konserwatora");
-
-                }
-                else if(request.contains("dodaj_kucharza"))
-                {
-                   out.println("podaj imie: ");
-                    String imie=in.readLine();
-                    out.println("podaj nazwisko: ");
-                    String nazwisko=in.readLine();
-
-                    plac.dodajPracownika(new Kucharz(imie,nazwisko));
-                }
-                else if(request.contains("dodaj_lekarza"))
-                {
-                    out.println("podaj imie: ");
-                    String imie=in.readLine();
-                    out.println("podaj nazwisko: ");
-                    String nazwisko=in.readLine();
-
-                    plac.dodajPracownika(new Lekarz(imie,nazwisko));
-
-                }
-                else if(request.contains("dodaj_naczelnika"))
-                {
-                    out.println("podaj imie: ");
-                    String imie=in.readLine();
-                    out.println("podaj nazwisko: ");
-                    String nazwisko=in.readLine();
-                    plac.dodajPracownika(new Naczelnik(imie,nazwisko));
-
-                    out.println("dodano nowego naczelnika!");
-
-                }
-                else if(request.contains("dodaj_wieznia"))
-                {
-                    out.println("podaj imie: ");
-                    String imie=in.readLine();
-                    out.println("podaj nazwisko: ");
-                    String nazwisko=in.readLine();
-                    out.println("klasa :");
-                    String klasa=in.readLine();
-                    out.println("Wiek:");
-                    String wiek=in.readLine();
-
-                    out.println("data zwolnienia: ");
-                    String data=in.readLine();
-                    out.println("numer celi: ");
-                    String numerC=in.readLine();
-                    int wiekP=Integer.parseInt(wiek);
-                    Date data1=new SimpleDateFormat("dd/MM/yyyy").parse(data);
-                    int numerCP=Integer.parseInt(numerC);
-
-
-                    plac.dodajWieznia(new Wiezien(imie,nazwisko,klasa,wiekP,data1,(ArrayList<Skargi>) skargi,(ArrayList<Lek>) leki ,numerCP ));
-                }
-                else if(request.contains("dodaj_wychowawce"))
-                {
-                    out.println("podaj imie: ");
-                    String imie=in.readLine();
-                    out.println("podaj nazwisko: ");
-                    String nazwisko=in.readLine();
-
-                    plac.dodajPracownika(new Wychowawca(imie,nazwisko, (ArrayList<Kurs>) listaKursow, (ArrayList<Praca>) listaPrac));
-                    out.println("dodano nowego naczelnika!");
-
-
-                }
-                else if(request.contains("dodaj_skarge"))
-                {
-                    out.println("podaj tresc skargi: ");
-                    String skarga=in.readLine();
-                  for(int i=0;i<wiezniowie.size();i++)
-                  {
-                      out.println("wiezien: "+i+" "+wiezniowie.get(i).getImie()+wiezniowie.get(i).getNazwisko());
-                  }
-                  out.println("podaj index wieznia do ktorego chcesz przypisac skarge: ");
-                  String numer=in.readLine();
-                  Integer numerW=Integer.parseInt(numer);
-
-                    skargi.add(new Skargi(skarga,wiezniowie.get(numerW)));
-
-
-
-                }
-                else if(request.contains("usun_wieznia")){
-                    out.println("podaj indeks pracownika ktorego chcesz usunac");
-
-                }
-                else if(request.contains("wyswietl_wiezni"))
-                {
-                    for(int i=0;i<wiezniowie.size();i++)
-                    {
-                        out.println("wiezniowie: "+i+plac.getListaWiezniow().get(i).getImie()+" "+plac.getListaWiezniow().get(i).getNazwisko());
-                    }
-                }
-                else if(request.contains("wyswietl_pracownikow"))
-                {
-                    for(int i=0;i<pracownicy.size();i++)
-                    {
-                        out.println("Pracownicy: "+i+plac.getListaPracownikow().get(i).getImie()+" "+plac.getListaPracownikow().get(i).getNazwisko());
-                    }
-                }
-                else if(request.contains("wyswietl_skargi"))
-                {
-                    for(int i=0;i<skargi.size();i++)
-                    {
-                        out.println("Pracownicy: "+i+skargi.get(i).getTresc()+" "+skargi.get(i).getWiezien());
-                    }
-                }
-                else if(request.contains("dodaj_imie"))
-                {
-                    out.println("dodaj imie");
-                    String imie=in.readLine();
-                    imiona.add(imie);
-                    out.println("dodano nowe imie");
-                }
-                else if(request.contains("wyswietl_imiona"))
-                {
-                    for(int i=0;i<imiona.size();i++)
-                    {
-                        out.println("imiona: "+imiona.get(i));
-                    }
-                }
                 /*
               else if (request.contains("lgoowanie")) {
                     out.println("podaj login");
@@ -385,13 +287,11 @@ public class ClientH implements Runnable {
                 }
                 */
 
-            }
+
         }catch (IOException e) {
             System.err.println("IOX ");
             System.err.println(e.getStackTrace());
 
-        } catch (ParseException e) {
-            e.printStackTrace();
         } finally {
             out.close();
             try {
