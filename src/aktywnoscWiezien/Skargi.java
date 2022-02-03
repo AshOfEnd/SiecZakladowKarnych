@@ -13,9 +13,7 @@ public class Skargi
         this.tresc = tresc;
     }
 
-    public void wyswietlSkarge() {
-        //gui
-    }
+
 
     public String getTresc() {
         return tresc;

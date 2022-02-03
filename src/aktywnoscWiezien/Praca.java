@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Praca
 {
-    private ArrayList<Wiezien> listaPracownikow;
+    private static ArrayList<Wiezien> listaPracownikow;
     private String nazwaPracy;
 
     public Praca(ArrayList<Wiezien> listaPracownikow, String nazwaPracy) {
@@ -12,7 +12,8 @@ public class Praca
         this.nazwaPracy = nazwaPracy;
     }
 
-    public ArrayList<Wiezien> getListaPracownikow() {
+
+    public static ArrayList<Wiezien> getListaPracownikow() {
         return listaPracownikow;
     }
 

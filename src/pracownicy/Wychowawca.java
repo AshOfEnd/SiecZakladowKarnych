@@ -25,12 +25,12 @@ public class Wychowawca extends Pracownik
     public void usunWiezniaZKursu(Kurs kurs,Wiezien wiezien) {
         kurs.usunZKursu(wiezien);
     }
-    public void przydzielWiezniaDoPracy() {}
     public void usunWiezniaZPracy() {}
     public void wyswietlMenu() {}
-
-
-
+    public void dodajPracownika(Wiezien wiezien, int i)
+    {
+        Praca.getListaPracownikow().add(wiezien);
+    }
 
     public ArrayList<Kurs> getListaKursow() {
         return listaKursow;

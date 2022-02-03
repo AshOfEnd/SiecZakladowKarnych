@@ -16,7 +16,5 @@ public class Kucharz extends Pracownik implements Serializable
         Zamowienie zamowienie = new Zamowienie(id,nazwa,liczba);
         magazyn.dodajZamowienie(zamowienie);
     }
-    public void wyswietlMenu() {
-        //gui
-    }
+
 }

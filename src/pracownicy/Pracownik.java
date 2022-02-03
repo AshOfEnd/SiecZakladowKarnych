@@ -32,7 +32,6 @@ public class Pracownik implements Serializable
         ZgloszenieUsterki zgloszenieUsterki = new ZgloszenieUsterki(tresc,data);
         archiwum.dodajUsterke(zgloszenieUsterki);
     }
-    public void wyswietlMenu() {}
 
 
     public String getImie() {

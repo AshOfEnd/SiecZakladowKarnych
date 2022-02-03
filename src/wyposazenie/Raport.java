@@ -7,7 +7,7 @@ public class Raport
     private String imie;
     private String nazwisko;
     private String trescRaportu;
-    private int data;
+    private   Date data;
 
     public Raport(String imie, String nazwisko, String trescRaportu, Date data) {
         this.imie = imie;
@@ -45,11 +45,11 @@ public class Raport
         this.trescRaportu = trescRaportu;
     }
 
-    public int getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(int data) {
+    public void setData(Date data) {
         this.data = data;
     }
 }

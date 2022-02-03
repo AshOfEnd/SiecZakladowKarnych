@@ -49,6 +49,9 @@ public class Izolatka {
     {
         wiezien = null;
     }
-    public void przydzielDoIzolatki(Wiezien wiezien) {}
+    public void przydzielDoIzolatki(Wiezien wiezien) {
+
+
+    }
     public void usunZIzolatki() {}
 }

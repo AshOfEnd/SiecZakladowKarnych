@@ -2,6 +2,7 @@ package aktywnoscWiezien;
 
 import aktywnoscWiezien.Izolatka;
 import pracownicy.*;
+import wyposazenie.Archiwum;
 import wyposazenie.Magazyn;
 
 import java.util.ArrayList;
@@ -12,12 +13,14 @@ public class Placowka
     private ArrayList<Wiezien> listaWiezniow;
     private Magazyn magazyn;
     private ArrayList<Pracownik> listaPracownikow;
+    private Archiwum arch;
 
 
 
-    public Placowka(ArrayList<Izolatka> listaIzolatek, ArrayList<Wiezien> listaWiezniow) {
+    public Placowka(ArrayList<Izolatka> listaIzolatek, ArrayList<Wiezien> listaWiezniow,Archiwum arch) {
         this.listaIzolatek = listaIzolatek;
         this.listaWiezniow = listaWiezniow;
+
     }
 
     public Placowka()
@@ -27,7 +30,9 @@ public class Placowka
         listaWiezniow = new ArrayList<Wiezien>();
         listaPracownikow = new ArrayList<Pracownik>();
         magazyn = new Magazyn();
+        this.arch= new Archiwum();
     }
+
 
     public void wyswietl() {}
     public void przeniesWieznia(Wiezien wiezien) {}

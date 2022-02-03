@@ -23,10 +23,6 @@ public class Konserwator extends Pracownik
         Raport raport = new Raport(imie,nazwisko,trescRaportu,data);
 
     }
-    public void odczytajZgloszenie() {
-        //gui
-    }
-    public void wyswietlMenu() {
-        //gui
-    }
+
+
 }

@@ -18,11 +18,8 @@ public class Magazynier extends Pracownik implements Serializable
         zamowienie.setLiczba(liczba);
         zamowienie.setNazwa(nazwa);
     }
-    public void wydajTowar(Magazyn magazyn,Zamowienie zamowienie) {
-        magazyn.wydajTowar(zamowienie);
-    }
     public void zlozZamowienie(Magazyn magazyn, Produkt produkt) {
-        magazyn.dodajDoMagazynu();
+        magazyn.dodajDoMagazynu(produkt);
     }
     public void wyswietlMenu() {}
     public String getName()

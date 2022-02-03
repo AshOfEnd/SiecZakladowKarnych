@@ -1,8 +1,6 @@
 package wyposazenie;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Archiwum
 {
@@ -20,17 +18,19 @@ public class Archiwum
         this.listaZgloszonychUsterek = listaZgloszonychUsterek;
     }
 
-    public void dodajRaport(Raport raport)
+    public short dodajRaport(Raport raport)
     {
         listaRaportow.add(raport);
+        return 0;
     }
     public void dodajUsterke(ZgloszenieUsterki zgloszenieUsterki)
     {
         listaZgloszonychUsterek.add(zgloszenieUsterki);
     }
-    public void wyswietlZgloszenie()
+    public short wyswietlZgloszenie()
     {
         System.out.println("Wyswietl zgloszenie usterki"+listaZgloszonychUsterek);
+        return 0;
     }
 
 

@@ -8,28 +8,45 @@ import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class Client implements ActionListener {
-    private static final String Server_IP="127.0.0.1";
-    private static final int Server_port=6666;
+public class Client {
+    private static final String Server_IP = "127.0.0.1";
+    private static final int Server_port = 6666;
     private static BufferedReader in;
     private BufferedReader keyboard;
     private static PrintWriter out;
     private static Socket socket;
 
 
-
     public static void main(String[] args) throws IOException, ClassNotFoundException, UnknownHostException {
-System.out.println("siema");
-        Socket socket=new Socket(Server_IP,Server_port);//utworzenie polaczenie z serverem
+        Socket socket = new Socket(Server_IP, Server_port);//utworzenie polaczenie z serverem
+        ServerCon serverConn = new ServerCon(socket);
+        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
-        in=new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        BufferedReader keyboard=new BufferedReader(new InputStreamReader(System.in));
-        PrintWriter out=new PrintWriter(socket.getOutputStream(),true);
+        new Thread(serverConn).start();
+            out.println("siema");
+        while (true) {
 
 
+            System.out.println(">");
+            String command = keyboard.readLine();
+
+            if (command.equals("quit")) break;
 
 
+            out.println(command);
 
+
+        }
+
+        socket.close();
+        System.exit(0);
+    }
+
+}
+
+        /*
         JFrame frame=new JFrame();
         JPanel panel=new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
@@ -85,6 +102,7 @@ System.out.println("siema");
                         if (serverResponse.equals("access")) {
                                 frame.setVisible(false);
                                 secscreen(out);
+                                /*
                                 /*
                             JFrame frame2=new JFrame();
                             JPanel panel=new JPanel();
@@ -156,9 +174,11 @@ System.out.println("siema");
                                  */
 
 
-                        }
 
-                    } catch (IOException e) {
+
+
+
+/*catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
@@ -189,7 +209,10 @@ System.out.println("siema");
         socket.close();
         System.exit(0);
     }
+    /*
+ */
 
+    /*
     private static void secscreen(PrintWriter aaa ) throws IOException {
 
 
@@ -269,4 +292,6 @@ System.out.println("siema");
     public void actionPerformed(ActionEvent e) {
 
     }
-}
+
+     */
+

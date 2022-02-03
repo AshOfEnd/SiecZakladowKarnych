@@ -23,13 +23,10 @@ public class Magazyn
         listaZamowien.add(zam);
     }
 
-    public void wydajTowar(Zamowienie zam)
-    {
 
-    }
-    public void dodajDoMagazynu()
+    public void dodajDoMagazynu(Produkt produkt)
     {
-
+          listaProduktów.add(produkt);
     }
 
     public ArrayList<Produkt> getListaProduktów() {
